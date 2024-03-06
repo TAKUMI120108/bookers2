@@ -12,17 +12,20 @@
 
   <body>
     <header>
-      <a href ="/">Booker</a>
-      <a href ="/about">about</a>
-      <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "Log in", new_user_session_path %>
-      </li>
+      <ul>
+        <li><a href ="/">Booker</a></il>
+        <li><a href ="/about">about</a></il>
+        <li>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        </li>
+        <li>
+          <%= link_to "Sign up", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "Log in", new_user_session_path %>
+        </li>
+      </ul>
+      
     </header>
     <%= yield %>
   </body>
