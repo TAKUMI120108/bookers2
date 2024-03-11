@@ -6,26 +6,40 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/d179d9da83.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class = "d-flex flex-column vh-50">
     <header>
-      <ul>
-        <li><a href ="/">Booker</a></il>
-        <li><a href ="/about">about</a></il>
-        <li>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+              <a href ="/">Bookers</a>
+           <ul class="navbar-nav ml-auto">
+       <% if user_signed_in? %>
+    
+        <li class="nav-item"><%= link_to "Home", user_path(current_user) %></il>
+        <li class="nav-item"><a href ="/users">Users</a></il>
+         <li class="nav-item"><a href ="/books">Books</a></il>
+        <li class="nav-item">
+         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-item"><a href ="/about">about</a></il>
+        <li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         </li>
-        <li>
+        <li class="nav-item">
           <%= link_to "Sign up", new_user_registration_path %>
         </li>
-        <li>
+        <li class="nav-item">
           <%= link_to "Log in", new_user_session_path %>
         </li>
       </ul>
-      
+      <% end %>
+      </div>
+      </nav>
     </header>
     <%= yield %>
   </body>

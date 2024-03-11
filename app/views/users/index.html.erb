@@ -1,0 +1,12 @@
+<%= render 'index', users:@user %>
+
+<h2>Books</h2>
+<h4>Title</h4>
+<h4>Option</h4>
+<% @users.each do |user| %>
+  <p>
+  <%= image_tag @user.get_image %>
+</p>
+<p><%= user.name  %></p>
+<%= link_to "Show", user_path(current_user) %>
+<% end %>
