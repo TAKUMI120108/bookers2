@@ -10,9 +10,14 @@ class BooksController < ApplicationController
   def create
       @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @book.save
+    if @book.save
+      flash[:notice] = "Welcome! You have signed up successfully."
    redirect_to user_path(@book.user.id)
+ else
+      flash[:notice] = "投稿に失敗しました。"
+    render :show
   end
+end
   
   def edit
      @book = Book.find(params[:id])
