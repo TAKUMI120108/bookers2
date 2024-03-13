@@ -28,7 +28,7 @@
       <% else %>
         <li class="nav-item"><a href ="/about">about</a></il>
         <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          <%= link_to "Log out", root_path, method: :delete %>
         </li>
         <li class="nav-item">
           <%= link_to "Sign up", new_user_registration_path %>

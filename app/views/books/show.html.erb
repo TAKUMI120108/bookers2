@@ -13,7 +13,8 @@
       <div class="m-1"><%= @book.title %></div>
       <div class="m-1"><%= @book.body %></div>
       <div class="m-1"><%= link_to 'Edit' , edit_book_path(@book.id) %></div>
+       <% if @book.user == current_user %>
       <div class="m-1"></div><%= link_to 'Destroy', book_path(@book.id), method: :delete, "data-confirm" => "Are you sure?" %>
- 
+        <% end %>
        </div>
        </div>

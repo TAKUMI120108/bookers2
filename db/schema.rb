@@ -44,8 +44,6 @@ ActiveRecord::Schema.define(version: 2024_03_06_140754) do
     t.string "title"
     t.string "body"
     t.integer "user_id"
-    t.string "name"
-    t.string "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
