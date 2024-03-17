@@ -19,22 +19,33 @@
            <ul class="navbar-nav ml-auto">
        <% if user_signed_in? %>
     
-        <li class="nav-item"><%= link_to "Home", user_path(current_user) %></il>
-        <li class="nav-item"><a href ="/users">Users</a></il>
-         <li class="nav-item"><a href ="/books">Books</a></il>
         <li class="nav-item">
-         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          
+           <%= link_to user_path(current_user) do %></il>
+           <i class="fa-solid fa-house"></i>Home
+           <% end %>
+        <li class="nav-item"><a href ="/users"><i class="fa-solid fa-users"></i>Users</a></il>
+         <li class="nav-item"><a href ="/books"><i class="fa-solid fa-book-open"></i>Books</a></il>
+        <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete do%>
+            <i class="fa-solid fa-right-from-bracket"></i>Log out
+          <% end %>  
         </li>
       <% else %>
-        <li class="nav-item"><a href ="/about">about</a></il>
+        <li class="nav-item"><a href ="/"><i class="fa-solid fa-house"></i>Home</a></il>
+        <li class="nav-item"><%=link_to about_path do %>
+        <i class="fa-solid fa-link"></i>About
+        <% end %>
+        </il>
         <li class="nav-item">
-          <%= link_to "Log out", root_path, method: :delete %>
+          <%= link_to new_user_registration_path do  %>
+          <i class="fa-solid fa-user-plus"></i>Sign up
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log in", new_user_session_path %>
+          <%= link_to new_user_session_path do %>
+          <i class="fa-solid fa-right-to-bracket"></i>Log in
+          <% end %>
         </li>
       </ul>
       <% end %>
@@ -44,6 +55,9 @@
      <% flash.each do |message_type, message| %>
       <div class="flash-message <%= message_type %>"><%= message %></div>
     <% end %>
+    <div>
+      <%= flash[:notice] %>
+    </div>
     <%= yield %>
   </body>
 </html>
